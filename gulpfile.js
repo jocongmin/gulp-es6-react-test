@@ -10,24 +10,30 @@ gulp.task('react', () => {
 	var environment = {
 		NODE_ENV: 'production'
 	};
-	gulp.src('index.js')
+	gulp.src('./es/index.js')
 		.pipe(SourceMap.init())
 		.pipe(babel({
+			babelrc: false,
 			presets: ['es2015', 'es2016', 'es2017', 'stage-0', 'react'],
 			plugins: ['transform-decorators-legacy']
 		}))
 		.pipe(browserify({
 			insertGlobals: true,
-			debug: !gulp.env.production,
-			transformKey: 'production'
+			debug: !gulp.env.production
+		}))
+		.pipe(babel({
+			babelrc: false,
+			presets: ['es2015', 'es2016', 'es2017', 'stage-0', 'react'],
+			plugins: ['transform-decorators-legacy']
 		}))
 		.pipe(envify(environment))
 		.pipe(uglify())
 		.pipe(SourceMap.write('.'))
-		.pipe(gulp.dest('build'))
+		.pipe(gulp.dest('js'))
 });
+
 gulp.task('default', () => {
-	return watch('./index.js', function() {
+	return watch('./es/*.js', function() {
 		gulp.run('react');
 	});
 });
