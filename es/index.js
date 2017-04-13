@@ -1,5 +1,4 @@
 import $ from 'jquery';
-var cmb = require('./public/abc.js');
-$(()=>{
-	console.log(cmb())
-})
+import lastName from './index2.js';
+import {ms} from './index2.js';
+console.log(ms,'2')

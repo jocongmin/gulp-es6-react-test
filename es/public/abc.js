@@ -1,4 +1,2 @@
-var cmb=()=>{
-	return 'sdlkfjsdfj';
-}
-module.exports=cmb;
+var data='sdflksjdf';
+export {data}
