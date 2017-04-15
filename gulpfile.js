@@ -51,6 +51,14 @@ gulp.task('uglifyjs', () => {
 			.pipe(gulp.dest('./dist'))
 	})
 })
+gulp.task('copyjs', () => {
+	gulp.src('./node_modules/jquery/dist/jquery.min.js')
+		.pipe(gulp.dest('./dist/'));
+})
+gulp.task('build:js', () => {
+	gulp.run('uglifyjs');
+	gulp.run('copyjs');
+})
 gulp.task('default', () => {
 	gulp.run('vender');
 	gulp.watch('./src/**/*.js', () => {
