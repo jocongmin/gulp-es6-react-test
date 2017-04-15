@@ -7,7 +7,7 @@ var uglifyjs = require('gulp-uglifyjs')
 
 
 
-var vendors = ['jquery'];
+var vendors = ['react', 'react-dom', 'jquery'];
 
 gulp.task('es2015', () => {
 	browserify({
@@ -40,10 +40,16 @@ gulp.task('vender', () => {
 		.pipe(fs.createWriteStream("vender.js"));
 })
 gulp.task('uglifyjs', () => {
-	gulp.src('./bundle.js')
-		.pipe(uglifyjs())
-		.pipe(rename('bundle.min.js'))
-		.pipe(gulp.dest('./dist'))
+	var minjs = ['./bundle.js', './vender.js'];
+	minjs.forEach(lib => {
+		gulp.src(lib)
+			.pipe(uglifyjs())
+			.pipe(rename({
+				suffix: ".min",
+				extname: ".js"
+			}))
+			.pipe(gulp.dest('./dist'))
+	})
 })
 gulp.task('default', () => {
 	gulp.run('vender');
