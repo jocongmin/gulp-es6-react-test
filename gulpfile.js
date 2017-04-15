@@ -7,7 +7,7 @@ var uglifyjs = require('gulp-uglifyjs')
 
 
 
-var vendors = ['react','react-dom','jquery'];
+var vendors = ['jquery'];
 
 gulp.task('es2015', () => {
 	browserify({
