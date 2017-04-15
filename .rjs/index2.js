@@ -10,3 +10,5 @@ exports.ms = testdata;
 var firstName = exports.firstName = 'Michael';
 var lastName = exports.lastName = 'Jackson';
 var year = exports.year = 1958;
+var data = 'sdflsdfjsdjf';
+exports.default = data;

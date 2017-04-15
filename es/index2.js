@@ -5,3 +5,5 @@ export {testdata as ms};
 export var firstName = 'Michael';
 export var lastName = 'Jackson';
 export var year = 1958;
+var data='sdflsdfjsdjf';
+export default data;

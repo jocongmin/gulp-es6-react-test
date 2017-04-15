@@ -20,6 +20,9 @@ gulp.task('tojs', () => {
 gulp.task('toes6', () => {
 	gulp.src('./.rjs/index.js')
 		.pipe(browserify({
+			transform:[babel({
+				
+			})]
 			insertGlobals: true,
 			debug: !gulp.env.production,
 			ignore: ['jquery-3.2.1.min.js']
