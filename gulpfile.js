@@ -1,4 +1,4 @@
-var gulp = require('gulp')
+ var gulp = require('gulp')
 var fs = require("fs")
 var babelify = require('babelify')
 var browserify = require('browserify')
@@ -7,7 +7,7 @@ var uglifyjs = require('gulp-uglifyjs')
 
 
 
-var vendors = ['react', 'react-dom', 'jquery'];
+var vendors = [];
 
 gulp.task('es2015', () => {
 	browserify({
