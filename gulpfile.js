@@ -4,7 +4,7 @@ var babelify = require('babelify')
 var browserify = require('browserify')
 var rename = require('gulp-rename')
 var uglifyjs = require('gulp-uglifyjs')
-
+var gutil = require('gulp-util');
 
 
 var vendors = [];
@@ -22,6 +22,7 @@ gulp.task('es2015', () => {
 			plugins: ['transform-decorators-legacy']
 		}])
 		.bundle()
+		.on('error', gutil.log.bind(gutil, 'Browserify Error'))
 		.pipe(fs.createWriteStream("bundle.js"));
 })
 gulp.task('vender', () => {
